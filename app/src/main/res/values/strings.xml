@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">Crud Android</string>
+
+    <!--Fragment de registro do veículo -->
     <string name="marca_do_ve_culo">Digite a marca do Veículo</string>
     <string name="modelo_do_ve_culo">Digite o modelo do Veículo</string>
     <string name="cadastrar_ve_culo">Cadastrar veículo</string>
     <string name="cars_fragment">Carros</string>
+
+    <!--Registro do veículo -->
+    <string name="car_registered">Veículo inserido com sucesso!</string>
+    <string name="car_error_insert">Erro na inserção do veículo!</string>
+
 </resources>

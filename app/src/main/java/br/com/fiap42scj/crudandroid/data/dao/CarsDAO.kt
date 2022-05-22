@@ -23,6 +23,6 @@ interface CarsDAO {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM cars_table")
-    suspend fun getAllCars(): LiveData<List<CarsEntity>>
+    fun getAllCars(): LiveData<List<CarsEntity>>
 
 }
