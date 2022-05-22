@@ -18,7 +18,6 @@ import br.com.fiap42scj.crudandroid.repository.CarsRepository
 import br.com.fiap42scj.crudandroid.utils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 
-
 class CarsFragment : Fragment(R.layout.fragment_cars) {
 
     private var _binding: FragmentCarsBinding? = null
@@ -92,4 +91,3 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
         }
     }
 }
-

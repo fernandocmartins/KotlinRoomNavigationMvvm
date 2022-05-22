@@ -7,7 +7,7 @@ interface CarsRepository {
 
     suspend fun insertCar(brand: String, model: String): Long
     suspend fun updateCar(id: Long, brand: String, model: String)
-    suspend fun getAllCars(): LiveData<List<CarsEntity>>
+    fun getAllCars(): LiveData<List<CarsEntity>>
     suspend fun deleteCar(id: Long)
     suspend fun deleteAllCars()
 

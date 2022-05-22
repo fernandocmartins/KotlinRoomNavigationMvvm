@@ -16,7 +16,7 @@ class CarsDatabaseDataSource(private val carsDAO: CarsDAO): CarsRepository {
         carsDAO.update(car)
     }
 
-    override suspend fun getAllCars(): LiveData<List<CarsEntity>> {
+    override fun getAllCars(): LiveData<List<CarsEntity>> {
         return carsDAO.getAllCars()
     }
 
