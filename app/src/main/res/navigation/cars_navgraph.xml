@@ -14,6 +14,6 @@
     <fragment
         android:id="@+id/carListFragment"
         android:name="br.com.fiap42scj.crudandroid.presentation.carlist.CarListFragment"
-        android:label="fragment_car_list"
+        android:label="@string/register_label"
         tools:layout="@layout/fragment_car_list" />
 </navigation>

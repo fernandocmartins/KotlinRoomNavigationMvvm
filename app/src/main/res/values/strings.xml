@@ -10,5 +10,6 @@
     <!--Registro do veículo -->
     <string name="car_registered">Veículo inserido com sucesso!</string>
     <string name="car_error_insert">Erro na inserção do veículo!</string>
+    <string name="register_label">Cadastro de Veículos - Fiap</string>
 
 </resources>

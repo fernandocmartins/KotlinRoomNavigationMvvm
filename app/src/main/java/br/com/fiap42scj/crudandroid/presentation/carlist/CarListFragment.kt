@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.com.fiap42scj.crudandroid.R
 import br.com.fiap42scj.crudandroid.data.dao.CarsDAO
 import br.com.fiap42scj.crudandroid.data.db.CarsDB
@@ -19,6 +20,7 @@ import br.com.fiap42scj.crudandroid.presentation.carlist.adapter.CarListAdapter
 import br.com.fiap42scj.crudandroid.presentation.cars.CarsViewModel
 import br.com.fiap42scj.crudandroid.repository.CarsDatabaseDataSource
 import br.com.fiap42scj.crudandroid.repository.CarsRepository
+import br.com.fiap42scj.crudandroid.utils.navigateWithAnimations
 
 class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
@@ -54,6 +56,7 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModelEvents()
+        setListeners()
     }
 
     private fun observeViewModelEvents() {
@@ -65,9 +68,11 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
                 adapter = carListAdapter
             }
         }
-
-
     }
 
-
+    private fun setListeners(){
+        binding.fbAddCar.setOnClickListener {
+            findNavController().navigateWithAnimations(R.id.carsFragment)
+        }
+    }
 }
