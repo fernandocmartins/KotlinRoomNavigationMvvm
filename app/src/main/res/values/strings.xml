@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Crud Android</string>
+    <string name="marca_do_ve_culo">Digite a marca do Veículo</string>
+    <string name="modelo_do_ve_culo">Digite o modelo do Veículo</string>
+    <string name="cadastrar_ve_culo">Cadastrar veículo</string>
+    <string name="cars_fragment">Carros</string>
 </resources>

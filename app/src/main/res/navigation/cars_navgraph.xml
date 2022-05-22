@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cars_navgraph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cars_navgraph"
+    app:startDestination="@id/carsFragment">
 
+    <fragment
+        android:id="@+id/carsFragment"
+        android:name="br.com.fiap42scj.crudandroid.presentation.cars.CarsFragment"
+        android:label="@string/cars_fragment"
+        tools:layout="@layout/fragment_cars" />
 </navigation>
