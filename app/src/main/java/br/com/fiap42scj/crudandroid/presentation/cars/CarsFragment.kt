@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import br.com.fiap42scj.crudandroid.R
 import br.com.fiap42scj.crudandroid.data.dao.CarsDAO
 import br.com.fiap42scj.crudandroid.data.db.CarsDB
@@ -70,6 +71,7 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
                 is CarsViewModel.CarState.Included -> {
                     clearEditTexts()
                     hideKeyBoard()
+                    findNavController().popBackStack()
                 }
             }
         }

@@ -59,6 +59,11 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
         setListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCars()
+    }
+
     private fun observeViewModelEvents() {
         viewModel.allCarsEvent.observe(viewLifecycleOwner){ carList ->
             val carListAdapter = CarListAdapter(carList)
