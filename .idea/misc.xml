@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/add_car_floating.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/car_add.xml" value="0.309" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.37817028985507245" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.37817028985507245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.38256410256410256" />
         <entry key="app/src/main/res/layout/car_item.xml" value="0.3875" />
         <entry key="app/src/main/res/layout/fragment_car_list.xml" value="0.3182474772135417" />
