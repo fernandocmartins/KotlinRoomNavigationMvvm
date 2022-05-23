@@ -60,8 +60,9 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
             binding.registerCarBtn.text = getString(R.string.update)
             binding.edtCarBrand.setText(carsEntity.brand)
             binding.edtCarModel.setText(carsEntity.model)
-        }
 
+            binding.delBtn.visibility = View.VISIBLE
+        }
         observerEvents()
         initListeners()
     }
@@ -69,14 +70,12 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
     private fun observerEvents() {
         viewModel.carStateEventData.observe(viewLifecycleOwner) { carState ->
             when(carState){
-                is CarsViewModel.CarState.Included -> {
+                is CarsViewModel.CarState.Included,
+                is CarsViewModel.CarState.Updated,
+                is CarsViewModel.CarState.Deleted -> {
                     clearEditTexts()
                     hideKeyBoard()
-                    findNavController().popBackStack()
-                }
-                is CarsViewModel.CarState.Updated -> {
-                    clearEditTexts()
-                    hideKeyBoard()
+                    requireView().requestFocus()
                     findNavController().popBackStack()
                 }
             }
@@ -103,8 +102,11 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
         binding.registerCarBtn.setOnClickListener {
             val brand = binding.edtCarBrand.text.toString()
             val model = binding.edtCarModel.text.toString()
-
             viewModel.includeUpdateCar(brand, model, args.cars?.id ?: 0)
+        }
+
+        binding.delBtn.setOnClickListener {
+            viewModel.deleteCar(args.cars?.id ?: 0)
         }
     }
 }

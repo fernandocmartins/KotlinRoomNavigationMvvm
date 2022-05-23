@@ -13,5 +13,9 @@
     <string name="register_label">Cadastro de Veículos - Fiap</string>
     <string name="update">Atualizar</string>
     <string name="car_update_sucess">Veículo atualizado com sucesso!</string>
+    <string name="apagar_ve_culo">Apagar Veículo</string>
+    <string name="car_delete_sucess">Veículo excluído com sucesso!</string>
+    <string name="car_error_delete">Erro na exclusão do veículo!</string>
+    <string name="car_error_update">Erro na atualização do veículo!</string>
 
 </resources>

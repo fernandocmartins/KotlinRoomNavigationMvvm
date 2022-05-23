@@ -28,7 +28,6 @@ class CarListAdapter(private val carsEntity: List<CarsEntity>): RecyclerView.Ada
         fun bindView(carsEntity: CarsEntity){
             textViewCarBrand.text = carsEntity.brand
             textViewCarModel.text = carsEntity.model
-
             itemBinding.root.setOnClickListener {
                 onItemClick?.invoke(carsEntity)
             }

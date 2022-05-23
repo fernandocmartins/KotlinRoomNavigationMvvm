@@ -16,5 +16,4 @@ class CarListViewModel(private val repository: CarsRepository) : ViewModel() {
     fun getCars() = viewModelScope.launch {
         _allCarsEvent.postValue(repository.getAllCars())
     }
-
 }

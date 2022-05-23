@@ -1,6 +1,5 @@
 package br.com.fiap42scj.crudandroid.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query

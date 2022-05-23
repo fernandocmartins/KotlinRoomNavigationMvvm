@@ -41,5 +41,4 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.setHomeAsUpIndicator(R.drawable.back_arrow)
         }
     }
-
 }

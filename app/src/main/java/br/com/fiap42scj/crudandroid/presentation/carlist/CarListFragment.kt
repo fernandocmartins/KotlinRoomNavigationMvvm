@@ -7,17 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.fiap42scj.crudandroid.R
 import br.com.fiap42scj.crudandroid.data.dao.CarsDAO
 import br.com.fiap42scj.crudandroid.data.db.CarsDB
-import br.com.fiap42scj.crudandroid.data.db.CarsEntity
 import br.com.fiap42scj.crudandroid.databinding.FragmentCarListBinding
 import br.com.fiap42scj.crudandroid.presentation.carlist.adapter.CarListAdapter
-import br.com.fiap42scj.crudandroid.presentation.cars.CarsViewModel
 import br.com.fiap42scj.crudandroid.repository.CarsDatabaseDataSource
 import br.com.fiap42scj.crudandroid.repository.CarsRepository
 import br.com.fiap42scj.crudandroid.utils.navigateWithAnimations

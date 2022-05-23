@@ -54,4 +54,17 @@
         app:layout_constraintStart_toStartOf="@+id/il_car_model"
         app:layout_constraintTop_toBottomOf="@+id/il_car_model" />
 
+    <Button
+        android:id="@+id/del_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_dark"
+        android:text="@string/apagar_ve_culo"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/register_car_btn"
+        app:layout_constraintStart_toStartOf="@+id/register_car_btn"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
