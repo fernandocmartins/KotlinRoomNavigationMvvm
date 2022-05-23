@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import br.com.fiap42scj.crudandroid.R
 import br.com.fiap42scj.crudandroid.data.dao.CarsDAO
 import br.com.fiap42scj.crudandroid.data.db.CarsDB
@@ -35,6 +36,8 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
         }
     }
 
+    private val args: CarsFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,23 +55,26 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        args.cars?.let {carsEntity ->  
+            binding.registerCarBtn.text = getString(R.string.update)
+            binding.edtCarBrand.setText(carsEntity.brand)
+            binding.edtCarModel.setText(carsEntity.model)
+        }
+
         observerEvents()
         initListeners()
-    }
-
-    private fun initListeners() {
-        binding.registerCarBtn.setOnClickListener {
-            val brand = binding.edtCarBrand.text.toString()
-            val model = binding.edtCarModel.text.toString()
-
-            viewModel.includeCar(brand, model)
-        }
     }
 
     private fun observerEvents() {
         viewModel.carStateEventData.observe(viewLifecycleOwner) { carState ->
             when(carState){
                 is CarsViewModel.CarState.Included -> {
+                    clearEditTexts()
+                    hideKeyBoard()
+                    findNavController().popBackStack()
+                }
+                is CarsViewModel.CarState.Updated -> {
                     clearEditTexts()
                     hideKeyBoard()
                     findNavController().popBackStack()
@@ -90,6 +96,15 @@ class CarsFragment : Fragment(R.layout.fragment_cars) {
         val parentActivity = requireActivity()
         if (parentActivity is AppCompatActivity){
             parentActivity.hideKeyboard()
+        }
+    }
+
+    private fun initListeners() {
+        binding.registerCarBtn.setOnClickListener {
+            val brand = binding.edtCarBrand.text.toString()
+            val model = binding.edtCarModel.text.toString()
+
+            viewModel.includeUpdateCar(brand, model, args.cars?.id ?: 0)
         }
     }
 }

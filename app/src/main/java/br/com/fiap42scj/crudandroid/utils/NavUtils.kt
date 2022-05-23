@@ -1,6 +1,7 @@
 package br.com.fiap42scj.crudandroid.utils
 
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import br.com.fiap42scj.crudandroid.R
 
@@ -16,4 +17,11 @@ fun NavController.navigateWithAnimations(
     animation: NavOptions = animType
 ) {
     this.navigate(destinationId, null, animation)
+}
+
+fun NavController.navigateWithAnimations(
+    destinationId: NavDirections,
+    animation: NavOptions = animType
+) {
+    this.navigate(destinationId, animation)
 }

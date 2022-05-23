@@ -17,7 +17,7 @@ class CarsViewModel(private val repository: CarsRepository) : ViewModel() {
     private val _messageEventData = MutableLiveData<Int>()
     val messageEventData: LiveData<Int>get()= _messageEventData
 
-    fun includeCar(brand: String, model: String) = viewModelScope.launch {
+    private fun includeCar(brand: String, model: String) = viewModelScope.launch {
         try {
             val id = repository.insertCar(brand, model)
             if (id > 0){
@@ -30,6 +30,25 @@ class CarsViewModel(private val repository: CarsRepository) : ViewModel() {
         }
     }
 
+    private fun updateCar(id: Long, brand: String, model: String) = viewModelScope.launch {
+        try {
+            repository.updateCar(id, brand, model)
+            _carStateEventData.value = CarState.Updated
+            _messageEventData.value = R.string.car_update_sucess
+        }catch (ex: Exception) {
+            _messageEventData.value = R.string.car_error_insert
+            Log.e(TAG, ex.toString())
+        }
+    }
+
+    fun includeUpdateCar(brand: String, model: String, id: Long = 0){
+        if (id > 0){
+            updateCar(id, brand, model)
+        } else {
+            includeCar(brand, model)
+        }
+    }
+
     companion object {
         private val TAG = CarsViewModel::class.java.simpleName
     }
@@ -37,5 +56,6 @@ class CarsViewModel(private val repository: CarsRepository) : ViewModel() {
     //MVI
     sealed class CarState {
         object Included : CarState()
+        object Updated : CarState()
     }
 }

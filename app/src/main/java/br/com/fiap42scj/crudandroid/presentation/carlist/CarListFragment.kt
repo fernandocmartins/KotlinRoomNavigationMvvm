@@ -66,7 +66,13 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
     private fun observeViewModelEvents() {
         viewModel.allCarsEvent.observe(viewLifecycleOwner){ carList ->
-            val carListAdapter = CarListAdapter(carList)
+            val carListAdapter = CarListAdapter(carList).apply {
+                onItemClick = { cars ->
+                    val directions = CarListFragmentDirections
+                        .actionCarListFragmentToCarsFragment(cars)
+                    findNavController().navigateWithAnimations(directions)
+                }
+            }
 
             with(binding.rvCars) {
                 setHasFixedSize(true)
@@ -77,7 +83,7 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
     private fun setListeners(){
         binding.fbAddCar.setOnClickListener {
-            findNavController().navigateWithAnimations(R.id.carsFragment)
+            findNavController().navigateWithAnimations(R.id.action_carListFragment_to_carsFragment)
         }
     }
 }
